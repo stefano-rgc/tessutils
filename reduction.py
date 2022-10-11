@@ -3,6 +3,9 @@ import signal, warnings, pickle, re
 from time import sleep
 from types import SimpleNamespace
 from pathlib import Path
+from functools import partial
+from collections import deque
+from multiprocessing import Pool
 # External modules
 import numpy as np
 import pandas as pd
@@ -16,9 +19,6 @@ from astroquery.mast import Catalogs
 from astropy.time import Time
 from joblib import Parallel, delayed
 from tqdm import tqdm
-from multiprocessing import Pool
-from functools import partial
-from collections import deque
 # Local modules
 # import utils
 import tessutils.utils as utils
@@ -200,7 +200,9 @@ def download_tpf(TIC,
     # Save as FITS files
     for tpf in tpfs:
         # Store TIC number in the header
-        tpf.header.set('TICID',value=TIC)
+        with warnings.catch_warnings():
+            warnings.simplefilter('ignore')
+            tpf.header.set('TICID',value=TIC)
         sector = tpf.sector 
         outputname = outputdir/Path(pattern.format(TIC=TIC, SECTOR=sector))
         tries = 1
@@ -1295,7 +1297,7 @@ def extract_light_curve(fitsFile,
                                         sqrt_col2_row2=sqrt_col2_row2,
                                         time=tpf.time.value)
     # Fit the image and find the contamination fraction within the aperture mask
-    fitted_image, err_msg = contamination(results, tpf.wcs, prepend_err_msg=id_msg)
+    fitted_image, err_msg = contamination(results, prepend_err_msg=id_msg)
     if fitted_image is None:
         # Save results
         results.tag = err_msg
