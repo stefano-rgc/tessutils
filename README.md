@@ -4,20 +4,22 @@ Pick a TIC number and obtain a reduced light curve for all TESS sectors availabl
 # Requirements
 The present code runs with no issues under Python 3.10 with the following packages:
 
-1. astropy                   	5.1 
-2. astroquery                	0.4.6
-3. joblib                    	1.1.0
-4. lightkurve                	2.3.0
-5. matplotlib                	3.5.1
-6. numpy                     	1.21.5
-7. pandas                    	1.4.3
-8. peakutils                 	1.3.4
-9. scipy                     	1.7.3
-10. tqdm                      	4.64.0
+1. astropy                   	(5.1)
+2. astroquery                	(0.4.6)
+3. joblib                    	(1.1.0)
+4. lightkurve                	(2.3.0)
+5. matplotlib                	(3.5.1)
+6. numpy                     	(1.21.5)
+7. pandas                    	(1.4.3)
+8. peakutils                 	(1.3.4)
+9. scipy                     	(1.7.3)
+10. tqdm                      	(4.64.0)
 
 You can cover all requirements by installing the following virtual environment using conda.
 
-`conda create --name tessutils python=3.10 astropy=5.1 astroquery=0.4.6 joblib=1.1.0 lightkurve=2.3.0 matplotlib=3.5.1 numpy=1.21.5 pandas=1.4.3 peakutils=1.3.4 scipy=1.7.3 tqdm=4.64.0 --channel conda-forge`
+```
+conda create --name tessutils python=3.10 astropy=5.1 astroquery=0.4.6 joblib=1.1.0 lightkurve=2.3.0 matplotlib=3.5.1 numpy=1.21.5 pandas=1.4.3 peakutils=1.3.4 scipy=1.7.3 tqdm=4.64.0 --channel conda-forge
+```
 
 Once created, you can activate the environment as by using the following command
 
@@ -64,3 +66,6 @@ See the Jupiter Notebook.
 
 # Found an issue in the code?
 Please then create an issue and include a minimal reproducible example of it.
+
+# Reference paper
+https://doi.org/10.1051/0004-6361/202141926
