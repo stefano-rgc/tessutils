@@ -15,10 +15,12 @@ The present code runs with no issues under Python 3.10 with the following packag
 9. [scipy](https://scipy.org/) (1.7.3)
 10. [tqdm](https://github.com/tqdm/tqdm) (4.64.0)
 
+If you will also run the tutorial from the Jupyter notebook, then the packages `IPython` and `ipympl` are also needed, plus I recommend opening the notebook using JupyterLab for a better experience.
+
 You can cover all requirements by installing the following virtual environment using conda.
 
 ```
-conda create --name tessutils python=3.10 astropy=5.1 astroquery=0.4.6 joblib=1.1.0 lightkurve=2.3.0 matplotlib=3.5.1 numpy=1.21.5 pandas=1.4.3 peakutils=1.3.4 scipy=1.7.3 tqdm=4.64.0 --channel conda-forge
+conda create --name tessutils python=3.10 astropy=5.1 astroquery=0.4.6 joblib=1.1.0 lightkurve=2.3.0 matplotlib=3.5.1 numpy=1.21.5 pandas=1.4.3 peakutils=1.3.4 scipy=1.7.3 tqdm=4.64.0 IPython ipympl --channel conda-forge
 ```
 
 Once created, you can activate the environment as by using the following command
@@ -28,7 +30,7 @@ conda activate tessutils
 ```
 
 # Importing Tessutils
-After downloading or cloning the repository (folder) tessutils and codes within it, we need to add its parent location to the environment variable used by Python to search for modules so that we can have access to the tessutils module regardless our location on our machine.
+After downloading or cloning the repository (folder) tessutils and codes within it, we need to add its parent location to the environment variable used by Python to search for modules so that we can have access to the `tessutils` module regardless our location on our machine.
 
 If the location of Tessutils on our machine is, for example,
 
@@ -42,10 +44,12 @@ the location to add is then
 /Users/stefano/Documents/Python/myPackages
 ```
 
-One easy way to add such a location is by executing the following commands within our Python session 
+One easy way to add such a location is by executing the following commands within our Python session (adapt accordingly to your path)
 
+```
 $ import sys
 $ sys.path.append('/Users/stefano/Documents/Python/myPackages')
+```
 
 We can now import Tessutils, for instance
 
@@ -69,6 +73,18 @@ the TPF has been downloaded to a folder named `tpfs`. Second, we extract the lig
 $ tu.reduction.extract_light_curve('tpfs/tic374944608_sec7.fits')
 ```
 
+The reduced light curve, with systematics and outliers already removed, is a `lightkurve.lightcurve.TessLightCurve` object (from the module [lightkurve](https://docs.lightkurve.org) stored as a pickle file along with information on the extraction process. Such a pickle file is stored by defaul in a folder named `processed` and can be accessed as follows
+
+```
+import pickle
+picklefile = f'processed/tic374944608_sec7_corrected.pickle'
+with open(picklefile, 'rb') as file:
+    info = pickle.load(file)
+lc = info.lc_regressed_notoutlier
+print(lc)
+lc.plot()
+```
+
 Finally, we create a diagnostic plot of the relevant processes involved during the light curve extraction
 
 ```
@@ -79,7 +95,7 @@ $ tu.plots.plot_diagnosis('processed/tic374944608_sec7_corrected.pickle')
 See the Jupiter Notebook.
 
 # Found an issue in the code?
-Create an issue and include a minimal reproducible example of it.
+Create an [issue on GitHub](https://github.com/stefano-rgc/tessutils/issues) and include a minimal reproducible example of it.
 
 # Reference paper
 https://doi.org/10.1051/0004-6361/202141926

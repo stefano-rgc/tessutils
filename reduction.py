@@ -967,7 +967,7 @@ def find_number_of_PCs(info,
                 * info.pca_all.nbins
         regressors (numpy.ndarray): 
             Regressors to be used for the design matrix.
-        lc (lightkurve light curve object):
+        lc (lightkurve.lightcurve.TessLightCurve):
             Light curve.
         npc (int, optional): 
             Maximum number of principal components to use. Defaults to 7.
@@ -1008,7 +1008,7 @@ def find_number_of_PCs(info,
         # Find index first PC that exceeds threshold value. This is the new npc
         new_npc = ind_bad_pcs[0].item()
     else:
-        print(f'No principal components (PCs) with variance>{threshold_variance}. All {npc} PCs used.')
+        print(f'TIC {info.tic} Sector {info.sector}: No principal components (PCs) with variance>{threshold_variance}. All {npc} PCs used.')
         new_npc = npc
     # Store to info
     info.pca_all = SimpleNamespace()
