@@ -690,7 +690,7 @@ def contamination(info,
         fraction_bkg_change = np.abs(bkg_change/Plane(xsize/2,ysize/2)[0])
     except TypeError:
         fraction_bkg_change = np.abs(bkg_change/Plane(xsize/2,ysize/2))
-    # Find the flux contribution of neighbor stars to the aperture mask
+    # Find the flux contribution of neighbor stars/target star/background to the aperture mask
     neighbour_flux = np.sum( (Fit(x,y)-TargetStar(x,y)-Plane(x,y))[mask_aperture] )
     target_flux = np.sum( TargetStar(x,y)[mask_aperture] )
     bkg_flux = np.sum( Plane(x,y)[mask_aperture] )
@@ -892,9 +892,9 @@ def exclude_intervals(tpf,
                 * info.excluded_intervals
         intervals (dict):
             Dictionary indicating the intervals to exclude. The keys are
-            integers indicating the TESS sectors, and the values are lists of
-            tuples, each tuple containing an initial and final time to exclude.
-            Times must be given with astropy units.
+            integers indicating TESS sectors, and values are lists of tuples.
+            Each tuple contains the initial and final time of the interval to
+            exclude. Times must be given with astropy units.
             Example: dictionary to set to FALSE the quality mask in TESS sectors
             1 and 6 for the given intervals.
                 > import astropy.units as u
@@ -1381,7 +1381,7 @@ def extract_light_curve(fitsFile,
         return
 
 def group_lcs(inputdir,
-              outputdir='grouped',
+              outputdir='groupped',
               namePattern = 'tic{TIC}_sec{SECTOR}_corrected.pickle',
               outputname_pattern = 'tic{TIC}_allsectors_corrected.pickle',
               TICs='all',
@@ -1399,8 +1399,8 @@ def group_lcs(inputdir,
         inputdir (str):
             Input directory where the outputs of `extract_light_curve` are stored.
         outputdir (str, optional):
-            Output directory where the grouped light curves will be stored.
-            Defaults to 'grouped'.
+            Output directory where the groupped light curves will be stored.
+            Defaults to 'groupped'.
         namePattern (str, optional):
             File name pattern used to search for the outputs of `extract_light_curve`.
             It must contain the strings '{TIC}' and '{SECTOR}' to indicate the 
