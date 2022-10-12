@@ -1040,8 +1040,8 @@ def create_output_structure():
     info.pca_used = None
     info.centroids = None
     info.excluded_intervals = None
-    info.lc_raw = None
-    info.lc_raw_nonan = None
+    info.lc_raw1 = None
+    info.lc_raw2 = None
     info.lc_trend = None
     info.lc_regressed = None
     info.lc_regressed_notoutlier = None
@@ -1307,14 +1307,14 @@ def extract_light_curve(fitsFile,
             return err_msg
         return
     # Generate the raw light curve
-    lc_raw = tpf.to_lightcurve(aperture_mask=results.masks.aperture, method='aperture')
+    lc_raw1 = tpf.to_lightcurve(aperture_mask=results.masks.aperture, method='aperture')
     # Store to results
-    results.lc_raw = lc_raw
+    results.lc_raw1 = lc_raw1
     # Find the indices of the quality mask that created the light curve
     ind = np.argwhere(tpf.quality_mask == True)
     # Masks with True value the light curve times with null or NaN flux
-    mask  = lc_raw.flux.value == 0
-    mask |= lc_raw.flux.value == np.nan
+    mask  = lc_raw1.flux.value == 0
+    mask |= lc_raw1.flux.value == np.nan
     # Set to False the indices to be masked (ignored).
     # Note that we take a subset from `ind` because the masks where defined from the light curve
     tpf.quality_mask[ind[mask]] = False
@@ -1327,7 +1327,7 @@ def extract_light_curve(fitsFile,
     # Remove NaN values
     lc_sap = lc_sap[~nan_mask]
     # Store to results
-    results.lc_raw_nonan = lc_sap
+    results.lc_raw2 = lc_sap
     # Make a design matrix and pass it to a linear regression corrector
     regressors = tpf[~nan_mask].flux[:, background_mask]
     # Number of PCs to use

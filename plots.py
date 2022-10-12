@@ -241,8 +241,8 @@ def plot_sector(sectorInfo,
                 * sectorInfo.pca_used
                 * sectorInfo.centroids
                 * sectorInfo.excluded_intervals
-                * sectorInfo.lc_raw
-                * sectorInfo.lc_raw_nonan
+                * sectorInfo.lc_raw1
+                * sectorInfo.lc_raw2
                 * sectorInfo.lc_trend
                 * sectorInfo.lc_regressed
                 * sectorInfo.lc_regressed_notoutlier
@@ -288,8 +288,8 @@ def plot_sector(sectorInfo,
                     * info.pca_used
                     * info.centroids
                     * info.excluded_intervals
-                    * info.lc_raw
-                    * info.lc_raw_nonan
+                    * info.lc_raw1
+                    * info.lc_raw2
                     * info.lc_trend
                     * info.lc_regressed
                     * info.lc_regressed_notoutlier
@@ -489,8 +489,8 @@ def plot_sector(sectorInfo,
                     * info.pca_used
                     * info.centroids
                     * info.excluded_intervals
-                    * info.lc_raw
-                    * info.lc_raw_nonan
+                    * info.lc_raw1
+                    * info.lc_raw2
                     * info.lc_trend
                     * info.lc_regressed
                     * info.lc_regressed_notoutlier
@@ -710,7 +710,7 @@ def plot_sector(sectorInfo,
             ax2.label_outer()
             return False
 
-        plot_raw_light_curve_and_trend(ax1,info.lc_raw,info.lc_trend)
+        plot_raw_light_curve_and_trend(ax1,info.lc_raw1,info.lc_trend)
         
         plot_detrended_light_curve(ax2,info.lc_regressed_notoutlier)
 
@@ -914,7 +914,7 @@ def plot_diagnosis(sectorInfo,
         # Collect only if the light curve extraction was successful
         if sectorInfo.tag == 'OK':
             lcs.append(sectorInfo.lc_regressed_notoutlier) # Detrended light curve without outliers
-            sector_intervals[sectorInfo.sector] = utils.minmax(sectorInfo.lc_raw.time) # Time interval
+            sector_intervals[sectorInfo.sector] = utils.minmax(sectorInfo.lc_raw1.time) # Time interval
     if len(lcs) >= 1:
         # Print status
         if verbose:
