@@ -1044,7 +1044,7 @@ def create_output_structure():
     info.lc_raw2 = None
     info.lc_trend = None
     info.lc_regressed = None
-    info.lc_regressed_notoutlier = None
+    info.lc_regressed_clean = None
     info.median_image = None
     info.masks = None
     info.tag = None
@@ -1359,7 +1359,7 @@ def extract_light_curve(fitsFile,
         results.lc_regressed.lc = lc_regressed         
         results.lc_regressed.outlier_mask = lc_mask_regressed_outliers
         results.lc_regressed.sigma_clipping = sigma_clipping
-        results.lc_regressed_notoutlier = lc_regressed_no_outliers
+        results.lc_regressed_clean = lc_regressed_no_outliers
         results.pca_used = SimpleNamespace()
         results.pca_used.coef = rc.coefficients
         results.pca_used.pc = [dm.values[:,i] for i in range(dm.rank)]
@@ -1561,7 +1561,7 @@ def stitch_group(inputdir,
         with open(file, 'rb') as picklefile:
             all_sectors = pickle.load(picklefile)
         # Read the results
-        lcs = [sector.lc_regressed_notoutlier for sector in all_sectors if sector.tag == 'OK']
+        lcs = [sector.lc_regressed_clean for sector in all_sectors if sector.tag == 'OK']
         # If no OK sectors 
         if len(lcs) == 0:
             return None
@@ -1679,7 +1679,7 @@ def get_group_summary(files,
         if mask is not np.nan:
             summary.background_mask_size = mask.sum()
         summary.tag = extract_value(info, 'tag')
-        lc = extract_value(info, 'lc_regressed_notoutlier')
+        lc = extract_value(info, 'lc_regressed_clean')
         if lc is not np.nan:
             span = lc.time.max() - lc.time.min()
             summary.time_span = span.value

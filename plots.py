@@ -245,7 +245,7 @@ def plot_sector(sectorInfo,
                 * sectorInfo.lc_raw2
                 * sectorInfo.lc_trend
                 * sectorInfo.lc_regressed
-                * sectorInfo.lc_regressed_notoutlier
+                * sectorInfo.lc_regressed_clean
                 * sectorInfo.median_image
                 * sectorInfo.masks
                 * sectorInfo.tag
@@ -292,7 +292,7 @@ def plot_sector(sectorInfo,
                     * info.lc_raw2
                     * info.lc_trend
                     * info.lc_regressed
-                    * info.lc_regressed_notoutlier
+                    * info.lc_regressed_clean
                     * info.median_image
                     * info.masks
                     * info.tag
@@ -493,7 +493,7 @@ def plot_sector(sectorInfo,
                     * info.lc_raw2
                     * info.lc_trend
                     * info.lc_regressed
-                    * info.lc_regressed_notoutlier
+                    * info.lc_regressed_clean
                     * info.median_image
                     * info.masks
                     * info.tag
@@ -712,7 +712,7 @@ def plot_sector(sectorInfo,
 
         plot_raw_light_curve_and_trend(ax1,info.lc_raw1,info.lc_trend)
         
-        plot_detrended_light_curve(ax2,info.lc_regressed_notoutlier)
+        plot_detrended_light_curve(ax2,info.lc_regressed_clean)
 
         return True
 
@@ -913,7 +913,7 @@ def plot_diagnosis(sectorInfo,
         figure = plot_sector(sectorInfo, figure, main3Rows[i], verbose=verbose)
         # Collect only if the light curve extraction was successful
         if sectorInfo.tag == 'OK':
-            lcs.append(sectorInfo.lc_regressed_notoutlier) # Detrended light curve without outliers
+            lcs.append(sectorInfo.lc_regressed_clean) # Detrended light curve without outliers
             sector_intervals[sectorInfo.sector] = utils.minmax(sectorInfo.lc_raw1.time) # Time interval
     if len(lcs) >= 1:
         # Print status
