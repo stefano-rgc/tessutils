@@ -1740,11 +1740,24 @@ def get_group_summary(files,
                       overwrite=False):
     """
     Purpose:
-        Stitch the light curves contained in the outputs from function `group_lcs`
-        within the given input directory. Return a CSV file per TIC star. The search
-        of input files within the given input directory is based on file names in
-        such a directory.
-
+        Generte a CSV table from the output of `group_lcs` with information
+        characterizing the light curve extraction for each TPF processed. The
+        CSV table contains the following columns:
+            * tic: TIC number.
+            * sector: Sector number.
+            * ra: Right ascension.
+            * dec: Declination.
+            * flux_contamination_fraction: Fraction of flux contamination in the aperture mask.
+            * background_change_fraction: Fraction of flux background change.
+            * mag: TESS magnitude.
+            * number_of_pc_used: Number of principal components used for the correction of the light curve.
+            * aperture_mask_threshold: Threshold used to create the aperture mask.
+            * aperture_mask_size: Number of pixels in the aperture mask.
+            * background_mask_size: Number of pixels in the background mask.
+            * tag: Message about the light curve extraction.
+            * time_span: Time span of the light curve in days.
+            * time_points: Number of time points (cadences) in the light curve.
+         
     Args:
         files (str | list[str]):
             Path to pickle file created by `group_lcs`. It can also be a list of

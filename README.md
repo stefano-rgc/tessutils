@@ -63,14 +63,14 @@ Let us say we are within our Python session and interested in the star with TIC 
 First, we download the corresponding Target Pixel File (TPF)
 
 ```
-$ import tessutils as tu
-$ tu.reduction.download_tpf(374944608, sectors=7)
+import tessutils as tu
+tu.reduction.download_tpf(374944608, sectors=7)
 ```
 
 the TPF has been downloaded to a folder named `tpfs`. Second, we extract the light curve from the TPF
 
 ```
-$ tu.reduction.extract_light_curve('tpfs/tic374944608_sec7.fits')
+tu.reduction.extract_light_curve('tpfs/tic374944608_sec7.fits')
 ```
 
 The reduced light curve, with systematics and outliers already removed, is a `lightkurve.lightcurve.TessLightCurve` object (from the module [lightkurve](https://docs.lightkurve.org) stored as a pickle file along with information on the extraction process. Such a pickle file is stored by defaul in a folder named `processed` and can be accessed as follows
@@ -88,7 +88,7 @@ lc.plot()
 Finally, we create a diagnostic plot of the relevant processes involved during the light curve extraction
 
 ```
-$ tu.plots.plot_diagnosis('processed/tic374944608_sec7_corrected.pickle')
+tu.plots.plot_diagnosis('processed/tic374944608_sec7_corrected.pickle')
 ```
 
 # Further examples
