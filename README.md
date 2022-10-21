@@ -47,14 +47,14 @@ the location to add is then
 One easy way to add such a location is by executing the following commands within our Python session (adapt accordingly to your path)
 
 ```
-$ import sys
-$ sys.path.append('/Users/stefano/Documents/Python/myPackages')
+import sys
+sys.path.append('/Users/stefano/Documents/Python/myPackages')
 ```
 
 We can now import Tessutils, for instance
 
 ```
-$ import tessutils as tu
+import tessutils as tu
 ```
 
 # Run example

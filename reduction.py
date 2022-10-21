@@ -1008,7 +1008,7 @@ def find_number_of_PCs(info,
         # Find index first PC that exceeds threshold value. This is the new npc
         new_npc = ind_bad_pcs[0].item()
     else:
-        print(f'TIC {info.tic} Sector {info.sector}: No principal components (PCs) with variance>{threshold_variance}. All {npc} PCs used.')
+        print(f'TIC {info.tic} Sector {info.sector}: No principal components (PCs) with variance>{threshold_variance}. All {npc} PCs used (this is just FYI, for further information see arguments `max_num_of_pc`, `num_of_pc_bins`, `pc_threshold_variance`.')
         new_npc = npc
     # Store to info
     info.pca_all = SimpleNamespace()
