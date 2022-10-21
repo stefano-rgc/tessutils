@@ -89,14 +89,17 @@ print(lc)
 lc.plot()
 ```
 
-Finally, we create a diagnostic plot of the relevant processes involved during the light curve extraction
+Finally, we create a diagnostic plot of relevant processes involved during the light curve extraction
 
 ```
 tu.plots.plot_diagnosis('processed/tic374944608_sec7_corrected.pickle')
 ```
 
 # Further examples
-See the Jupiter Notebook.
+See the Jupiter Notebook:
+
+https://github.com/stefano-rgc/tessutils/blob/main/tutorial/Tessutils_tutorial.ipynb
+
 
 # Found an issue in the code?
 Create an [issue on GitHub](https://github.com/stefano-rgc/tessutils/issues) and include a minimal reproducible example of it.
