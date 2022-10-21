@@ -15,7 +15,7 @@ The present code runs with no issues under Python 3.10 with the following packag
 9. [scipy](https://scipy.org/) (1.7.3)
 10. [tqdm](https://github.com/tqdm/tqdm) (4.64.0)
 
-If you will also run the tutorial from the Jupyter notebook, then the packages `IPython` and `ipympl` are also needed, plus I recommend opening the notebook using JupyterLab for a better experience.
+If you will also run the [tutorial](https://github.com/stefano-rgc/tessutils/blob/main/tutorial/Tessutils_tutorial.ipynb) from the Jupyter notebook (https://github.com/stefano-rgc/tessutils/blob/main/tutorial/Tessutils_tutorial.ipynb), then the packages `IPython` and `ipympl` are also needed, plus I recommend opening the notebook using JupyterLab for a better experience.
 
 You can cover all requirements by installing the following virtual environment using conda.
 
