@@ -1,0 +1,22 @@
+# Ignore everything
+*
+# but not these ones
+!.gitignore
+!README.md
+!__init__.py
+!plots.py
+!reduction.py
+!tutorial
+!utils.py
+
+# Ignore everything
+tutorial/*
+# but not these ones
+!tutorial/Tessutils_slides_and_tutorial.mp4
+!tutorial/Tessutils_tutorial.ipynb
+!tutorial/figures
+
+# Ignore everything
+tutorial/figures/*
+# but not these ones
+!tutorial/figures/boxplot.png
