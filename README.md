@@ -21,7 +21,7 @@ https://github.com/stefano-rgc/tessutils/blob/main/tutorial/Tessutils_tutorial.i
 
 then, the packages `IPython` and `ipympl` are also needed, plus I recommend opening the notebook using JupyterLab for a better experience.
 
-You can cover all requirements by installing the following virtual environment using [conda](https://docs.conda.io/en/latest/).
+You can cover all requirements by installing the following virtual environment using [conda](https://docs.conda.io/en/latest).
 
 ```
 conda create --name tessutils python=3.10 astropy=5.1 astroquery=0.4.6 joblib=1.1.0 lightkurve=2.3.0 matplotlib=3.5.1 numpy=1.21.5 pandas=1.4.3 peakutils=1.3.4 scipy=1.7.3 tqdm=4.64.0 IPython ipympl --channel conda-forge
