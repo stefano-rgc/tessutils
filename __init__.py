@@ -1,3 +1,3 @@
-import tessutils.plots
-import tessutils.utils
-import tessutils.reduction
+from . import plots
+from . import reduction
+from . import utils
