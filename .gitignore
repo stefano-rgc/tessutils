@@ -4,6 +4,7 @@
 !.gitignore
 !README.md
 !tutorial
+!tessutils
 !setup.py
 
 # Ignore everything
