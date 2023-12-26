@@ -3,8 +3,8 @@
 # but not these ones
 !.gitignore
 !README.md
-!__init__.py
 !tutorial
+!setup.py
 
 # Ignore everything
 tutorial/*
@@ -19,6 +19,7 @@ tessutils/*
 !tessutils/plots.py
 !tessutils/reduction.py
 !tessutils/utils.py
+!tessutils/__init__.py
 
 # Ignore everything
 tutorial/figures/*
