@@ -4,10 +4,7 @@
 !.gitignore
 !README.md
 !__init__.py
-!plots.py
-!reduction.py
 !tutorial
-!utils.py
 
 # Ignore everything
 tutorial/*
@@ -15,6 +12,13 @@ tutorial/*
 !tutorial/Tessutils_slides_and_tutorial.mp4
 !tutorial/Tessutils_tutorial.ipynb
 !tutorial/figures
+
+# Ignore everything
+tessutils/*
+# but not these ones
+!tessutils/plots.py
+!tessutils/reduction.py
+!tessutils/utils.py
 
 # Ignore everything
 tutorial/figures/*

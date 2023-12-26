@@ -1,3 +1,3 @@
-from . import plots
-from . import reduction
-from . import utils
+from .tessutils import plots
+from .tessutils import reduction
+from .tessutils import utils
