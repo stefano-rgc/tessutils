@@ -20,8 +20,7 @@ from astropy.time import Time
 from joblib import Parallel, delayed
 from tqdm import tqdm
 # Local modules
-# import utils
-import tessutils.utils as utils
+from . import utils
 
 def download_tpf(TIC,
                  imsize=20,

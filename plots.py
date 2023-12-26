@@ -10,10 +10,8 @@ import matplotlib.pyplot as plt
 import peakutils
 import matplotlib as mpl
 # Local modules
-# import utils
-import tessutils.utils as utils
-# from reduction import normalize_lightCurve
-from tessutils.reduction import normalize_lightCurve
+from . import utils
+from .reduction import normalize_lightCurve
 
 def scalesymbols(mags,
                  min_mag,
