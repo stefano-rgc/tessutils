@@ -33,7 +33,7 @@ Once created, you can activate the environment as by using the following command
 conda activate tessutils
 ```
 
-Alternatively, you can use `pip` to directly install the package along with all its dependences. For it, go to the directory containing the `setup.py` file and run:
+⮕ Alternatively, you can use `pip` to directly install the package along with all its dependences. For it, go to the directory containing the `setup.py` file and run:
 
 ```
 pip install .
