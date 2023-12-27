@@ -47,7 +47,7 @@ pip uninstall tessutils
 
 # Importing Tessutils
 
-If you use `pip` to install the package, then `tessutils` should be ready to import like any other Python module.
+If you used `pip` to install the package, then `tessutils` should be ready to import like any other Python module.
 
 If you just downloaded or cloned the repository, then you need to add its location to the environment variable used by Python to search for modules, so that you can have access to the `tessutils` module regardless your location on your machine.
 
