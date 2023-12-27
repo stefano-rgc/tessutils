@@ -33,33 +33,23 @@ Once created, you can activate the environment as by using the following command
 conda activate tessutils
 ```
 
+Alternatively, you can use `pip` to directly install the package along with all its dependences. For it, go to the directory containing the `setup.py` file and run:
+
+```
+pip install .
+```
+
+If you wish so, you can later uninstall it with:
+
+```
+pip uninstall tessutils
+``` 
+
 # Importing Tessutils
-After downloading or cloning the repository (folder) tessutils and codes within it, we need to add its parent location to the environment variable used by Python to search for modules so that we can have access to the `tessutils` module regardless our location on our machine.
 
-If the location of Tessutils on our machine is, for example,
+If you use `pip` to install the package, then `tessutils` should be ready to import like any other Python module.
 
-```
-/Users/stefano/Documents/Python/myPackages/tessutils
-```
-
-the location to add is then
-
-```
-/Users/stefano/Documents/Python/myPackages
-```
-
-One easy way to add such a location is by executing the following commands within our Python session (adapt accordingly to your path)
-
-```
-import sys
-sys.path.append('/Users/stefano/Documents/Python/myPackages')
-```
-
-We can now import Tessutils, for instance
-
-```
-import tessutils as tu
-```
+If you just downloaded or cloned the repository, then you need to add its location to the environment variable used by Python to search for modules, so that you can have access to the `tessutils` module regardless your location on your machine.
 
 # Run example
 Let us say we are within our Python session and interested in the star with TIC 374944608 from sector 7. 
