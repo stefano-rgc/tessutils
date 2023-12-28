@@ -933,4 +933,5 @@ def plot_diagnosis(sectorInfo,
     if verbose:
         print(f"Saving PDF as {pdfname}.")
     figure.savefig(pdfname, bbox_inches='tight', dpi=300)
+    plt.close(figure)
     return
