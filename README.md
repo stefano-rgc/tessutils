@@ -67,14 +67,14 @@ the TPF has been downloaded to a folder named `tpfs`. Second, we extract the lig
 tu.reduction.extract_light_curve('tpfs/tic374944608_sec7.fits')
 ```
 
-The reduced light curve, with systematics and outliers already removed, is a `lightkurve.lightcurve.TessLightCurve` object (from the module [lightkurve](https://docs.lightkurve.org) stored as a pickle file along with information on the extraction process. Such a pickle file is stored by defaul in a folder named `processed` and can be accessed as follows
+The reduced light curve, with systematics and outliers already removed, is a `lightkurve.lightcurve.TessLightCurve` object (from the module [lightkurve](https://docs.lightkurve.org)) stored as a pickle file along with information on the extraction process. Such a pickle file is stored by defaul in a folder named `processed` and can be accessed as follows
 
 ```
 import pickle
 picklefile = f'processed/tic374944608_sec7_corrected.pickle'
 with open(picklefile, 'rb') as file:
     info = pickle.load(file)
-lc = info.lc_regressed_notoutlier
+lc = info.lc_regressed_clean
 print(lc)
 lc.plot()
 ```
